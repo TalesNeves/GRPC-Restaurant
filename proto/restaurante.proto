@@ -1,0 +1,28 @@
+syntax = "proto3";
+package restaurante;
+
+service SD{
+    rpc Garcon2Server(Order) returns(MensagemResponse){}
+    rpc Department2Server(DepartmentMessage) returns(OrderQeue){}
+}
+
+message Item{
+    int32 id =1;
+    int32 quantity = 3;
+}
+
+message DepartmentMessage{
+    int32 department_id = 1;
+}
+message Order{
+    int32 table = 1;
+    repeated Item items = 2;
+}
+
+message OrderQeue{
+    repeated Order orders = 1;
+}
+
+message MensagemResponse{
+    string response = 1;
+}
